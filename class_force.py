@@ -8,6 +8,8 @@ Created on Thu Apr 20 08:14:23 2023
 # Importer les modules nécessaires
 
 from class_vecteur3D import Vecteur3D
+from class_particule import Particule
+from class_univers import Univers
 import numpy as np
 
 
@@ -140,8 +142,14 @@ class Ressort_Amortisseur(object):
         self.l0 = l0
         self.c = c
         self.particules = particules #[p1 p2]
-        
-        
+    
+    def __str__(self):
+        return f"Ressort_Amortisseur(raideur={self.raid}, c={self.c}, l0={self.l0}, particules={self.particules})"
+    
+    def getR(self):
+        for p in self.particules:
+            print(p.getName())
+      
     def setForce(self, p): 
         """fonction renvoyant les efforts du ressort amortisseur
         sur la particule concerné
@@ -279,7 +287,7 @@ class force_Ponctuelle(object):
         else :
             return Vecteur3D()
 
-#%%
+
 if __name__=="__main__": #false lors d'un import    
     p1 = Particule()
     p2 = Particule()

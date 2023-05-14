@@ -8,7 +8,7 @@ Created on Thu Apr 20 08:15:11 2023
 # Importer les modules nécessaires
 from class_vecteur3D import Vecteur3D
 import matplotlib.pyplot as plt
-from class_force import Viscosite
+#from class_force import Viscosite
 import pygame
 from pylab import plot
 
@@ -37,7 +37,9 @@ class Particule(object):
     def __repr__(self):
         return f"Particule(name={self.name!r}, position={self.position[-1]}, vitesse={self.vitesse[-1]}, accel={self.accel[-1]}, masse={self.masse}, color={self.color}, fixe={self.fixe})"
 
-
+    def getName(self):
+        return self.name
+    
     def __eq__(self, other):
         """fonction qui renvoie si deux objets sont identiques
         """
@@ -161,6 +163,18 @@ class Particule(object):
             Y.append(p.y)
         return plot(X, Y,color=self.color,label=self.name)
     
+    def angleTheta(self, particule):
+        """return l'angle entre deux particules
+        """
+        from math import atan2
+        P2X = particule.axePosition(1)
+        P1X = self.axePosition(1)
+        P2Y = particule.axePosition(2)
+        P1Y = self.axePosition(2)
+        angle = []
+        for i in range(len(P2X)):
+            angle.append(atan2(P2Y[i] - P1Y[i], P2X[i] - P1X[i]))
+        return angle
     
     def plot3D(self, ax):
         """fonction qui plot dans l'espace (x,y,z)
@@ -223,9 +237,7 @@ if __name__=="__main__": #false lors d'un import
     print(particule.getPosition())
 
     particule.move(1)
-
-    visc = Viscosite()
-    particule.PFD(visc)
+    
     particule.move(10)
     
     particule.plot2D()

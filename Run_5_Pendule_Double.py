@@ -65,8 +65,8 @@ T = Tige()
 r1 = Ressort_Amortisseur(T.setCoeff()[0], c = T.setCoeff()[1], l0=l1, particules = [p1, p2])
 r2 = Ressort_Amortisseur(T.setCoeff()[0], c = T.setCoeff()[1], l0=l2, particules = [p2, p3])
 
-#r1 = Ressort_Amortisseur(T.setCoeff()[0], c = 10, l0=l1, particules = [p1, p2])
-#r2 = Ressort_Amortisseur(T.setCoeff()[0], c = 10, l0=l2, particules = [p2, p3])
+r1 = Ressort_Amortisseur(T.setCoeff()[0], c = 10, l0=l1, particules = [p1, p2])
+r2 = Ressort_Amortisseur(T.setCoeff()[0], c = 10, l0=l2, particules = [p2, p3])
 
 g1 = gravite(Vecteur3D(0,-9.81, 0))
 
@@ -110,6 +110,15 @@ plt.ylabel("Y(m)")
 plt.title("x en fonction de y")
 legend()
 show()
+
+plt.figure(3)
+plt.plot(T,p1.angleTheta(p2))
+plt.plot(T,p1.angleTheta(p3))
+plt.xlabel("T(s)")
+plt.ylabel("Theta")
+plt.title("Theta en fonction du temps")
+plt.legend(["L1", "L2"])  # Ajoutez les étiquettes souhaitées correspondant à chaque plot
+plt.show()
 
 pygame.quit()  
 sys.exit()

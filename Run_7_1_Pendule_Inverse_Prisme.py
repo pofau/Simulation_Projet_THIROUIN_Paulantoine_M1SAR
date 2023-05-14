@@ -85,25 +85,6 @@ while u3.run :
             
     u3.gameUpdate()
 
-plt.figure(1)
-T = u3.axeTemps()
-X = p2.axePosition(1)
-plt.plot(T,X)
-
-plt.xlabel("t(s)")
-plt.ylabel("X(m)")
-plt.title("X en fonction du temps")
-show()
-
-plt.figure(3)
-T = u3.axeTemps()
-X = p2.axePosition(2)
-plt.plot(T,X)
-
-plt.xlabel("t(s)")
-plt.ylabel("Y(m)")
-plt.title("Y en fonction du temps")
-show()
 
 plt.figure(2)
 u3.plot2D()
@@ -112,6 +93,14 @@ plt.xlabel("X(m)")
 plt.ylabel("Y(m)")
 legend()
 show()
+
+plt.figure(3)
+T = u3.axeTemps()
+plt.plot(T,p1.angleTheta(p2))
+plt.xlabel("T(s)")
+plt.ylabel("Theta")
+plt.title("Theta en fonction du temps")
+plt.show()
 
 pygame.quit()  
 sys.exit()

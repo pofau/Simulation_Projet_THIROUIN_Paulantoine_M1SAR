@@ -9,7 +9,6 @@ Created on Thu Apr 20 08:14:52 2023
 from class_vecteur3D import Vecteur3D
 from class_particule import Particule
 from class_torseur import Torseur
-from class_force import Force_Harmonique, Ressort_Amortisseur, force_Ponctuelle, Tige, Tige_CDM, gravite, force_const, Viscosite, Attracteur
 import sys
 from math import pi,atan2
 import pygame
@@ -128,7 +127,6 @@ class Univers(object) :
         """
         
         pygame.init()
-        
         self.screen = pygame.display.set_mode((W, H))
         self.clock = pygame.time.Clock()
         self.background=background
@@ -172,15 +170,13 @@ class Univers(object) :
 if __name__=="__main__": #false lors d'un import 
    
     particule = Particule()
-    visc = Viscosite()
-    gravite = gravite(Vecteur3D(1,1,1))
+ 
     
     univers = Univers()
     print(univers)
     
     univers.addAgent(particule)
-    univers.addGenerateur(visc)
-    univers.addGenerateur(gravite)
+
     
     univers.getPopulation()
     print(univers.getTime())

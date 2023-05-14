@@ -115,10 +115,19 @@ u1.plot2D()
 plt.xlabel("X(m)")
 plt.ylabel("Y(m)")
 plt.title("X en fonction de Y")
-
 legend()
 show()
 
+plt.figure(3)
+plt.plot(T,p1.angleTheta(p2))
+plt.plot(T,p3.angleTheta(p4))
+plt.plot(T,p5.angleTheta(p6))
+plt.xlabel("T(s)")
+plt.ylabel("Theta")
+plt.title("Theta en fonction du temps")
+plt.legend(["L1", "L2", "L3"])  # Ajoutez les étiquettes souhaitées correspondant à chaque plot
+plt.show()
+
+
 pygame.quit()        
 sys.exit()
-

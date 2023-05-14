@@ -43,7 +43,7 @@ scale = 10
 pmasse = 1
 
 #création de l'univers
-dt = 0.001
+dt = 0.00001
 u1 = Univers(dt = dt)
 
 #ajout des forces de gravité et de v iscosité

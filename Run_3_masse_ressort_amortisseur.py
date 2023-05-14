@@ -70,6 +70,7 @@ while u1.run:
         # Activez la force harmonique et désactivez la force constante
         fh = Force_Harmonique(Vecteur3D(0, 1, 0), etat=True, omega=0.05, u = [u1], particule=[p1, p2])
         u1.addGenerateur(fh)
+    
         
 
     u1.gameUpdate()
